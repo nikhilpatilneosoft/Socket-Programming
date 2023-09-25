@@ -17,17 +17,17 @@ public class SocketClient {
             System.out.println("connected to server");
 
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Please entrer the data you want to send.");
+            System.out.println("Please enter the data you want to send.");
             String str = br.readLine();
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             out.println(str);
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            System.out.println(in.readLine());
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
     }
-
-
 }
 
